@@ -1,0 +1,24 @@
+<mat-card class="product-card" 
+          (mouseenter)="isHovered = true" 
+          (mouseleave)="isHovered = false">
+  
+  <img mat-card-image [src]="product.productImage" [alt]="product.productName">
+  
+  <mat-card-content>
+    <div class="brand">{{ product.brand }}</div>
+    <h3 class="product-name">{{ product.productName }}</h3>
+    <div class="presentation">{{ product.presentation }}</div>
+    <div class="price">S/ {{ product.price.toFixed(2) }}</div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-flat-button 
+            color="primary" 
+            class="add-to-cart" 
+            *ngIf="isHovered"
+            (click)="onAddToCart()">
+      <mat-icon>add_shopping_cart</mat-icon>
+      Agregar
+    </button>
+  </mat-card-actions>
+</mat-card>

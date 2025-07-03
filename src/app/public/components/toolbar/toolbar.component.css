@@ -1,0 +1,111 @@
+/* Estilos generales del toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #3f51b5; /* Color primario de Material */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Contenedor izquierdo con logo y nombre */
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+}
+
+/* Estilos para la imagen del logo */
+.toolbar-left .logo {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block; /* Asegura que la imagen se comporte como bloque */
+}
+
+/* Nombre de la empresa */
+.toolbar-left .company-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Espaciador flexible */
+.spacer {
+  flex: 1;
+}
+
+/* Contenedor derecho con iconos */
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botones de iconos */
+.toolbar-right button {
+  position: relative;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.toolbar-right button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Badge del carrito */
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4081;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Estilos para el menú de usuario */
+.mat-menu-panel {
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.mat-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-menu-item mat-icon {
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.54);
+}

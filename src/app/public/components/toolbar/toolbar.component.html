@@ -1,0 +1,48 @@
+<mat-toolbar color="primary" class="toolbar">
+  <!-- Parte izquierda: Logo y nombre -->
+  <div class="toolbar-left" (click)="goHome()">
+<img src="../../../../assets/logo.png" alt="Img logo bar" class="logo">
+    <span class="company-name">MedulaTech</span>
+  </div>
+
+  <!-- Espacio flexible -->
+  <span class="spacer"></span>
+
+  <!-- Parte derecha: Iconos -->
+  <div class="toolbar-right">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Perfil">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="goToCart()" matTooltip="Carrito">
+      <mat-icon>shopping_cart</mat-icon>
+      @if (cartItemsCount > 0) {
+        <span class="cart-badge">{{cartItemsCount}}</span>
+      }
+    </button>
+  </div>
+
+  <!-- Menú de usuario -->
+  <mat-menu #userMenu="matMenu">
+    @if (!isLoggedIn) {
+      <button mat-menu-item (click)="goToLogin()">
+        <mat-icon>login</mat-icon>
+        <span>Iniciar Sesión</span>
+      </button>
+      <button mat-menu-item (click)="goToRegister()">
+        <mat-icon>person_add</mat-icon>
+        <span>Registrarse</span>
+      </button>
+    }
+    @if (isLoggedIn) {
+      <button mat-menu-item (click)="goToProfile()">
+        <mat-icon>account_circle</mat-icon>
+        <span>Mi Perfil</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    }
+  </mat-menu>
+</mat-toolbar>

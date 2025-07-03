@@ -1,0 +1,49 @@
+@if (loading) {
+  <div class="loading-spinner">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+} 
+@else if (error) {
+  <div class="error-message">
+    No se pudieron cargar las ofertas
+  </div>
+}
+@else if (sliders.length > 0) {
+  <div class="slider-container">
+    <button mat-icon-button class="nav-button prev" (click)="prevSlide()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    
+    <div class="slider">
+      @for (slider of sliders; track slider.id; let i = $index) {
+        <div class="slide" [class.active]="i === currentIndex">
+          <img 
+            [src]="slider.sliderImage" 
+            [alt]="slider.name"
+            [class.hidden]="i !== currentIndex">
+        </div>
+      }
+    </div>
+    
+    <button mat-icon-button class="nav-button next" (click)="nextSlide()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <div class="indicators">
+    @for (slider of sliders; track slider.id; let i = $index) {
+      <button 
+        mat-icon-button 
+        class="indicator" 
+        [class.active]="i === currentIndex"
+        (click)="goToSlide(i)">
+        <mat-icon>{{ i === currentIndex ? 'radio_button_checked' : 'radio_button_unchecked' }}</mat-icon>
+      </button>
+    }
+  </div>
+}
+@else {
+  <div class="empty-message">
+    No hay ofertas disponibles
+  </div>
+}

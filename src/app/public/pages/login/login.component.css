@@ -1,0 +1,100 @@
+/* Estilos del contenedor principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+
+/* Estilos de la tarjeta de login */
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Estilos para los campos de formulario */
+.login-form mat-form-field {
+  width: 100%;
+}
+
+/* Estilos para el checkbox "Recordarme" y enlace */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.forgot-password {
+  color: #3f51b5; /* Color primario de Angular Material */
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Estilos del botón de submit */
+.login-button {
+  height: 48px;
+  font-size: 16px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+.login-button:disabled {
+  background-color: #b0b0b0;
+}
+
+/* Estilos del footer */
+.login-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  color: #666;
+}
+
+.login-footer a {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el spinner de carga */
+.spinner {
+  margin: 0 auto;
+}
+
+/* Estilos para mensajes de error */
+.mat-error {
+  color: #f44336; /* Rojo de Angular Material para errores */
+  font-size: 12px;
+}
+
+/* Estilos para el snackbar de error */
+.error-snackbar {
+  background-color: #f44336;
+  color: white;
+}
+
+.error-snackbar .mat-mdc-snack-bar-label {
+  color: white;
+}

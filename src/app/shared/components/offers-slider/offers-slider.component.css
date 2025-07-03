@@ -1,0 +1,78 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease;
+}
+
+.slide img.hidden {
+  display: none;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.nav-button.prev {
+  left: 16px;
+}
+
+.nav-button.next {
+  right: 16px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.indicator {
+  width: 24px;
+  height: 24px;
+}
+
+.loading-spinner, .error-message, .empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+}
+
+.error-message {
+  color: #f44336;
+}

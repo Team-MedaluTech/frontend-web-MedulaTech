@@ -1,0 +1,52 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Iniciar Sesión</mat-card-title>
+      <mat-card-subtitle>Accede a tu cuenta MedulaTech</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput formControlName="email" type="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+          
+          @if (loginForm.get('email')?.hasError('required')) {
+            <mat-error>El email es requerido</mat-error>
+          }
+          @if (loginForm.get('email')?.hasError('email')) {
+            <mat-error>Por favor ingresa un email válido</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required>
+          <button type="button" mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          
+          @if (loginForm.get('password')?.hasError('required')) {
+            <mat-error>La contraseña es requerida</mat-error>
+          }
+        </mat-form-field>
+
+        <div class="remember-forgot">
+          <mat-checkbox formControlName="rememberMe">Recordarme</mat-checkbox>
+          <a routerLink="/forgot-password" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || loading">
+          @if (!loading) {
+            <span>Iniciar Sesión</span>
+          }
+          @if (loading) {
+            <mat-spinner diameter="24"></mat-spinner>
+          }
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions class="login-footer">
+      <p>¿No tienes una cuenta? <a routerLink="/register">Regístrat
